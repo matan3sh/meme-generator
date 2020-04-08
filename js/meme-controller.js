@@ -13,7 +13,7 @@ function renderKeyWordsAtMeme(image) {
   let keyWords = getImageKeyWords(image)
   let strHTMLKeyWords = keyWords.map(keyWord =>
     `   <div class="chip">
-                ${keyWord}<i class="close material-icons">close</i>
+                ${keyWord}<i class="far fa-times-circle"></i>
             </div>
         `)
   $('.chips').html(strHTMLKeyWords)
