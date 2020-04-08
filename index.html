@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Meme-Generator App</title>
+  </head>
+  <body>
+    
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-wrapper red darken-4">
+        <a href="#" class="logo brand-logo left">Meme Generator</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
+        <form class="search-bar">
+          <div class="input-field">
+            <input id="search" type="search" oninput="onRenderByKeyWord(this.value)" required />
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- TABS -->
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs red-text">
+            <li class="tab col s2"><a href="" onclick="onRenderByKeyWord(this.innerText)">All</a></li>
+            <li class="tab col s2"><a href="" onclick="onRenderByKeyWord(this.innerText)">Happy</a></li>
+            <li class="tab col s2"><a href="" onclick="onRenderByKeyWord(this.innerText)">Animal</a></li>
+            <li class="tab col s2"><a href="" onclick="onRenderByKeyWord(this.innerText)">Sport</a></li>
+            <li class="tab col s2"><a href="" onclick="onRenderByKeyWord(this.innerText)">Cartoon</a></li>
+            <li class="tab col s2"><a href="" onclick="onRenderByKeyWord(this.innerText)">Holywood</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- IMAGES GALLERY -->
+      <div class="images"></div>
+
+      <!-- IMAGE MODAL -->
+      <div id="modal" class="modal">
+        <div class="card horizontal">
+          <div class="card-image">
+            <canvas id="canvas" height="550" width="450"</canvas>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content center-align">
+              <input class="add-line" type="text" id="add-line" placeholder="Type Your Sentence" oninput="">
+              <div>
+                  <button class="btn btn-medium red darken-3 waves-effect waves-light"><i class="material-icons">add_circle</i></button>
+                  <button class="btn btn-medium red darken-3 waves-effect waves-light"><i class="material-icons">remove_circle</i></button>
+                  <button class="btn btn-medium red darken-3 waves-effect waves-light" onclick="onAddLine()">Add Line</button>
+                  <button class="btn btn-medium red darken-3 waves-effect waves-light"><i class="material-icons">delete</i></button>
+              </div>
+              <div class="edit-buttons">
+                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light"><i class="large material-icons">arrow_upward</i></a>
+                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light"><i class="large material-icons">arrow_downward</i></a>
+                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light"><i class="large material-icons">arrow_back</i></a>
+                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light"><i class="large material-icons">arrow_forward</i></a>
+              </div>
+              <div class="edit-buttons">
+                  <button class="btn red darken-3 waves-effect waves-light">Shadow</button>
+                  <button class="btn red darken-3 waves-effect waves-light">Storke</button>
+              </div>
+            </div>
+            <div class="chips center-align"></div>
+            <div class="card-action center-align">
+              <button class="btn btn red darken-3 white-text waves-effect waves-light"><i class="material-icons left">save</i>SAVE</button>
+              <button class="btn btn black white-text waves-effect waves-light"><i class="material-icons left">cloud_download</i>DOWNLOAD</button>
+              <button class="btn btn blue white-text waves-effect waves-light"><i class="material-icons left">share</i>SHARE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAP TARGET -->
+      <div class="fixed-action-btn about-circle">
+        <a
+          id="menu"
+          onclick="$('.tap-target').tapTarget('open')"
+          class="waves-effect waves-light btn btn-floating btn-large red darken-4">
+          <i class="material-icons">assignment_ind</i>
+        </a>
+      </div>
+
+      <!-- TAP TARGET CONTENT -->
+      <div class="tap-target red darken-4" data-activates="menu">
+        <div class="tap-target-content white-text">
+          <h5>
+            <img src="img/me/portrait.jpeg" class="responsive-img circle" />
+          </h5>
+          <p class="center-align white-text circle-text">
+            My name is <strong>Matan Shaviro </strong> I am a Software Engineer Graduate (B.Sc) Throughout my working experience, I've always been on the technical side and I really love it. I have a passion for high tech, an analytical mindset, and creative ability to pay attention to detail.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <nav class="footer">
+      <div class="nav-wrapper red darken-4">
+        <a href="" class="brand-logo center"
+          >All rights reserved Matan Shaviro &copy; 2020</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down"></ul>
+      </div>
+    </nav>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <script src="js/images-controller.js"></script>
+    <script src="js/images-service.js"></script>
+  </body>
+</html>
