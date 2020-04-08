@@ -8,11 +8,12 @@
 }
 
 html {
-  font-family: Lato;
+  font-family: Lato, sans-serif;
+  scroll-behavior: smooth;
 }
 
 .logo {
-  font-family: Generator;
+  font-family: Generator, sans-serif;
   margin-left: 15px;
 }
 

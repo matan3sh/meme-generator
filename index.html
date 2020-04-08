@@ -9,12 +9,12 @@
     <title>Meme-Generator App</title>
   </head>
   <body>
-    
     <!-- Navbar -->
     <nav>
       <div class="nav-wrapper red darken-4">
         <a href="#" class="logo brand-logo left">Meme Generator</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#contact"><i class="material-icons">message</i></a></li>
         </ul>
         <form class="search-bar">
           <div class="input-field">
@@ -40,18 +40,19 @@
           </ul>
         </div>
       </div>
+      
       <!-- IMAGES GALLERY -->
       <div class="images"></div>
 
-      <!-- IMAGE MODAL -->
+      <!-- MEME MODAL -->
       <div id="modal" class="modal">
         <div class="card horizontal">
           <div class="card-image">
-            <canvas id="canvas" height="550" width="450"</canvas>
+            <canvas id="canvas" height="550" width="450" onclick="onCanvasClicked(event)" </canvas>
           </div>
           <div class="card-stacked">
             <div class="card-content center-align">
-              <input class="add-line" type="text" id="add-line" placeholder="Type Your Sentence" oninput="">
+              <input class="add-line" type="text" id="add-line" placeholder="Type Your Sentence" oninput="onAddSentence(event)">
               <div>
                   <button class="btn btn-medium red darken-3 waves-effect waves-light"><i class="material-icons">add_circle</i></button>
                   <button class="btn btn-medium red darken-3 waves-effect waves-light"><i class="material-icons">remove_circle</i></button>
@@ -65,14 +66,14 @@
                 <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light"><i class="large material-icons">arrow_forward</i></a>
               </div>
               <div class="edit-buttons">
-                  <button class="btn red darken-3 waves-effect waves-light">Shadow</button>
-                  <button class="btn red darken-3 waves-effect waves-light">Storke</button>
+                  <button class="btn red darken-3 waves-effect waves-light" onclick="onAddShadow()">Shadow</button>
+                  <button class="btn red darken-3 waves-effect waves-light" onclick="onAddStorke()">Storke</button>
               </div>
             </div>
             <div class="chips center-align"></div>
             <div class="card-action center-align">
               <button class="btn btn red darken-3 white-text waves-effect waves-light"><i class="material-icons left">save</i>SAVE</button>
-              <button class="btn btn black white-text waves-effect waves-light"><i class="material-icons left">cloud_download</i>DOWNLOAD</button>
+              <button class="btn btn black white-text waves-effect waves-light" onclick="onDownloadMeme()"><i class="material-icons left">cloud_download</i>DOWNLOAD</button>
               <button class="btn btn blue white-text waves-effect waves-light"><i class="material-icons left">share</i>SHARE</button>
             </div>
           </div>
@@ -101,6 +102,35 @@
         </div>
       </div>
 
+      <!-- Contact Form -->
+      <div id="contact" class="row contact">
+        <div class="col s6">
+          <div class="company-info center-align">
+            <div id="map"></div>
+            <ul>
+              <button class="btn brown darken-3"><i class="material-icons left">code</i> Github</button>
+              <button class="btn blue darken-3"><i class="material-icons left">link</i> Linkedin</button>
+            </ul>
+          </div>
+        </div>
+        <div class="col s6 red darken-4 center-align">
+          <form>
+            <div class="input-field">
+              <input type="text" id="name">
+              <label class="active white-text" for="name">Name</label>
+            </div>
+            <div class="input-field">
+              <input type="email" id="email" class="validate">
+              <label class="active white-text" for="email">Email</label>
+            </div>
+            <div class="input-field">
+              <textarea type="email" id="textarea" class="materialize-textarea"></textarea>
+              <label class="active white-text" for="textarea">Message</label>
+            </div>
+            <button onclick="onSubmitMessage(event)" class="btn btn waves-effect waves-light white red-text">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <!-- FOOTER -->
@@ -111,11 +141,15 @@
         <ul id="nav-mobile" class="left hide-on-med-and-down"></ul>
       </div>
     </nav>
-    
+    </div>
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
+    <script src="js/main.js"></script>
     <script src="js/images-controller.js"></script>
     <script src="js/images-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/meme-service.js"></script>
   </body>
 </html>
