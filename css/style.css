@@ -63,6 +63,10 @@ html {
   font-size: 14px;
 }
 
+a {
+  outline: none !important;
+}
+
 #map {
   height: 271px;
   width: 100%;
