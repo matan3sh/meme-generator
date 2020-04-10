@@ -1,6 +1,6 @@
 'use strict'
 
-$(document).ready(() => { onInit(); initMap() })
+$(document).ready(() => { onInit(); initMap(); })
 $('.modal').modal();
 
 var gIsMarked = false;

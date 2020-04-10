@@ -67,3 +67,13 @@ function addNewLine() {
 function deleteLine(currentMeme) {
     currentMeme.textProps[currentMeme.selectedLineIdx].content = ''
 }
+
+function handleCanvasClick(canvasHeight, yPos) {
+    let currentMeme = getCurrentMeme()
+    currentMeme.textProps.forEach(line => {
+        if (line.yPos - yPos < line.fontSize / canvasHeight && line.yPos - yPos > 0) {
+            currentMeme.selectedLineIdx = line.lineIdx
+            onLineToggle(line)
+        }
+    })
+}

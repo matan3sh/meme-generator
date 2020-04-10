@@ -141,6 +141,23 @@ function onLeft() {
     renderCanvas(currentMeme.selectedImgId)
 }
 
+function onColorPicker(color) {
+    let currentMeme = getCurrentMeme()
+    $('.color-picker').val(color)
+    currentMeme.textProps[currentMeme.selectedLineIdx].color = color
+    renderCanvas(currentMeme.selectedImgId)
+}
+
+function onCanvasClicked(event) {
+    let canvasHeight = document.querySelector('#canvas').height;
+    let yPos = event.offsetY / canvasHeight;
+    handleCanvasClick(canvasHeight, yPos)
+}
+
+function onLineToggle(line) {
+    document.querySelector('.add-line').value = line.content
+}
+
 function onDownloadMeme() {
     canvas.toDataURL('image/jpg')
     let imageData = canvas.toDataURL('jpg');
