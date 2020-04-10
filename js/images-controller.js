@@ -28,5 +28,11 @@ function onRenderByKeyWord(keyWord) {
 
 function onSubmitMessage(event) {
     event.preventDefault()
-    Materialize.toast('Messege Sent', 4000, 'rounded')
+    let myEmail = 'matan3sh@gmail.com'
+    let subject = $('#subject').val()
+    let message = $('#textarea').val()
+    Materialize.toast('You Transfer to Gmail', 4000, 'rounded')
+    window.open(
+        `https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${subject}&body=${message}`
+    );
 }
