@@ -1,7 +1,5 @@
 'use strict'
 
-var gIsMarked = false
-
 function onImageClick(imageId) {
     let image = getImageById(imageId)
     initMeme()
@@ -48,7 +46,6 @@ function renderSentence() {
         ctx.font = `${text.fontSize}px ${text.fontFamily}`
         if (text.shadow) setShadow(ctx, text, xPos, yPos)
         ctx.fillStyle = text.color;
-        if (gIsMarked && currentMeme.selectedLineIdx === text.lineIdx) continue;
         if (text.stroke) setStorke(ctx, text, xPos, yPos)
         ctx.fillText(text.content, xPos, yPos);
     }
@@ -83,6 +80,65 @@ function onAddStorke() {
     currentMemeStorke = (!currentMemeStorke) ? true : false
     currentMeme.textProps[currentMeme.selectedLineIdx].stroke = currentMemeStorke
     renderCanvas(currentMeme.selectedImgId);
+}
+
+function onDeleteLine() {
+    let currentMeme = getCurrentMeme();
+    deleteLine(currentMeme)
+    $('.add-line').val('')
+    Materialize.toast('Delete Success', 4000, 'rounded')
+    renderCanvas(currentMeme.selectedImgId);
+}
+
+function onIncDec(action) {
+    let currentMeme = getCurrentMeme()
+    let currentFontSize = currentMeme.textProps[currentMeme.selectedLineIdx].fontSize
+    if (currentFontSize === 16) currentFontSize = 18
+    if (currentFontSize === 60) currentFontSize = 58
+    if (currentFontSize > 16 && currentFontSize < 60) {
+        if (action === 'inc') currentFontSize += 2
+        else currentFontSize -= 2
+    }
+    currentMeme.textProps[currentMeme.selectedLineIdx].fontSize = currentFontSize
+    renderCanvas(currentMeme.selectedImgId)
+}
+
+function onUp() {
+    let currentMeme = getCurrentMeme()
+    let currentYPos = currentMeme.textProps[currentMeme.selectedLineIdx].yPos
+    if (currentYPos === 0.95) currentYPos = 0.94
+    else if (currentYPos === 0.15) currentYPos = 0.15
+    else if (currentYPos > 0.95 || currentYPos > 0.15) currentYPos -= 0.05
+    currentMeme.textProps[currentMeme.selectedLineIdx].yPos = currentYPos
+    renderCanvas(currentMeme.selectedImgId)
+}
+
+function onDown() {
+    let currentMeme = getCurrentMeme()
+    let currentYPos = currentMeme.textProps[currentMeme.selectedLineIdx].yPos
+    currentYPos = (currentYPos < 0.05) ? 0.05 : currentYPos + 0.05
+    if (currentYPos > 0.95) currentYPos = 0.95
+    currentMeme.textProps[currentMeme.selectedLineIdx].yPos = currentYPos
+    renderCanvas(currentMeme.selectedImgId)
+}
+
+function onRight() {
+    let currentMeme = getCurrentMeme()
+    let currentXPos = currentMeme.textProps[currentMeme.selectedLineIdx].xPos
+    if (currentXPos >= 0.85) currentXPos = 0.85
+    else currentXPos += 0.05
+    currentMeme.textProps[currentMeme.selectedLineIdx].xPos = currentXPos
+    renderCanvas(currentMeme.selectedImgId)
+}
+
+function onLeft() {
+    let currentMeme = getCurrentMeme()
+    let currentXPos = currentMeme.textProps[currentMeme.selectedLineIdx].xPos
+    if (currentXPos === 0.80) currentXPos = 0.80
+    else if (currentXPos === 0.15) currentXPos = 0.15
+    else if (currentXPos > 0.80 || currentXPos > 0.20) currentXPos -= 0.05
+    currentMeme.textProps[currentMeme.selectedLineIdx].xPos = currentXPos
+    renderCanvas(currentMeme.selectedImgId)
 }
 
 function onDownloadMeme() {

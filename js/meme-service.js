@@ -63,3 +63,7 @@ function addNewLine() {
         stroke: true
     })
 }
+
+function deleteLine(currentMeme) {
+    currentMeme.textProps[currentMeme.selectedLineIdx].content = ''
+}
