@@ -45,13 +45,13 @@ function _createImage(image) {
 function _setKeyWords() {
     let happyKeys = [3, 6, 8, 11, 12, 24]
     _checkingEachKeyWords(happyKeys, 'HAPPY')
-    let animalKeys = [4, 7, 14]
+    let animalKeys = [4, 14]
     _checkingEachKeyWords(animalKeys, 'ANIMAL')
     let sportKeys = [1, 20, 21, 23]
     _checkingEachKeyWords(sportKeys, 'SPORT')
-    let cartoonKeys = [0, 2, 3, 6, 7, 9, 14, 15, 18]
+    let cartoonKeys = [2, 3, 6, 9, 14, 15, 18]
     _checkingEachKeyWords(cartoonKeys, 'CARTOON')
-    let hollywoodKeys = [5, 8, 10, 11, 12, 13, 16, 22, 24]
+    let hollywoodKeys = [0, 5, 7, 8, 10, 12, 13, 16, 22, 24]
     _checkingEachKeyWords(hollywoodKeys, 'HOLYWOOD')
 }
 

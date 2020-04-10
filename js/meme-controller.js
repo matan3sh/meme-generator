@@ -158,6 +158,21 @@ function onLineToggle(line) {
     $('.add-line').val(line.content)
 }
 
+function onAlignment(align) {
+    let currentMeme = getCurrentMeme()
+    switch (align) {
+        case 'right':
+            currentMeme.textProps[currentMeme.selectedLineIdx].xPos = 0.85
+            break
+        case 'left':
+            currentMeme.textProps[currentMeme.selectedLineIdx].xPos = 0.15
+            break
+        default:
+            currentMeme.textProps[currentMeme.selectedLineIdx].xPos = 0.50
+    }
+    renderCanvas(currentMeme.selectedImgId)
+}
+
 function onDownloadMeme() {
     canvas.toDataURL('image/jpg')
     let imageData = canvas.toDataURL('jpg');
