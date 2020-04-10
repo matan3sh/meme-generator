@@ -149,13 +149,13 @@ function onColorPicker(color) {
 }
 
 function onCanvasClicked(event) {
-    let canvasHeight = document.querySelector('#canvas').height;
+    let canvasHeight = $('#canvas').get(0).height;
     let yPos = event.offsetY / canvasHeight;
     handleCanvasClick(canvasHeight, yPos)
 }
 
 function onLineToggle(line) {
-    document.querySelector('.add-line').value = line.content
+    $('.add-line').val(line.content)
 }
 
 function onDownloadMeme() {
