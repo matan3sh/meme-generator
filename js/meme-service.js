@@ -92,7 +92,8 @@ function addStorke() {
     return gMeme
 }
 
-function incText(currentMeme) {
+function incText() {
+    let currentMeme = getCurrentMeme()
     let currentFontSize = currentMeme.textProps[currentMeme.selectedLineIdx].fontSize
     if (currentFontSize === 60) currentFontSize = 60
     else currentFontSize += 2
@@ -100,7 +101,8 @@ function incText(currentMeme) {
     return gMeme
 }
 
-function decText(currentMeme) {
+function decText() {
+    let currentMeme = getCurrentMeme()
     let currentFontSize = currentMeme.textProps[currentMeme.selectedLineIdx].fontSize
     if (currentFontSize === 16) currentFontSize = 16
     else currentFontSize -= 2

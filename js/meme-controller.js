@@ -72,41 +72,54 @@ function onAddSentence() {
     renderCanvas(currentMeme.selectedImgId);
 }
 
-function onAddShadow() {
-    let currentMeme = addShadow()
-    renderCanvas(currentMeme.selectedImgId);
-}
-
-function onAddStorke() {
-    let currentMeme = addStorke()
-    renderCanvas(currentMeme.selectedImgId);
-}
-
-
-function onIncDec(action) {
-    let currentMeme = getCurrentMeme()
-    if (action === 'inc') currentMeme = incText(currentMeme)
-    else currentMeme = decText(currentMeme)
+function onAddStyle(style) {
+    let currentMeme = {}
+    switch (style) {
+        case 'storke':
+            currentMeme = addStorke()
+            break
+        case 'shadow':
+            currentMeme = addShadow()
+            break
+        default:
+            break
+    }
     renderCanvas(currentMeme.selectedImgId)
 }
 
-function onUp() {
-    let currentMeme = moveTextUp()
+function onResize(action) {
+    let currentMeme = {}
+    switch (action) {
+        case 'inc':
+            currentMeme = incText()
+            break
+        case 'dec':
+            currentMeme = decText()
+            break
+        default:
+            break
+    }
     renderCanvas(currentMeme.selectedImgId)
 }
 
-function onDown() {
-    let currentMeme = moveTextDown()
-    renderCanvas(currentMeme.selectedImgId)
-}
-
-function onRight() {
-    let currentMeme = moveTextRight()
-    renderCanvas(currentMeme.selectedImgId)
-}
-
-function onLeft() {
-    let currentMeme = moveTextLeft()
+function onMoveDirections(direction) {
+    let currentMeme = {}
+    switch (direction) {
+        case 'up':
+            currentMeme = moveTextUp()
+            break
+        case 'down':
+            currentMeme = moveTextDown()
+            break
+        case 'right':
+            currentMeme = moveTextRight()
+            break
+        case 'left':
+            currentMeme = moveTextLeft()
+            break
+        default:
+            break
+    }
     renderCanvas(currentMeme.selectedImgId)
 }
 

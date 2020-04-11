@@ -58,16 +58,16 @@
             <div class="card-content center-align">
               <input class="add-line" type="text" id="add-line" placeholder="Type Your Sentence" oninput="onAddSentence(event)">
               <div>
-                  <button class="btn btn-medium red darken-3 waves-effect waves-light" onclick="onIncDec('inc')"><i class="fas fa-plus-circle"></i></button>
-                  <button class="btn btn-medium red darken-3 waves-effect waves-light" onclick="onIncDec('dec')"><i class="fas fa-minus-circle"></i></button>
+                  <button class="btn btn-medium red darken-3 waves-effect waves-light" onclick="onResize('inc')"><i class="fas fa-plus-circle"></i></button>
+                  <button class="btn btn-medium red darken-3 waves-effect waves-light" onclick="onResize('dec')"><i class="fas fa-minus-circle"></i></button>
                   <button class="btn btn-medium red darken-3 waves-effect waves-light" onclick="onAddLine()">Add Line</button>
                   <button class="btn btn-medium red darken-3 waves-effect waves-light" onclick="onDeleteLine()"><i class="fas fa-trash"></i></button>
               </div>
               <div class="edit-buttons">
-                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onUp()"><i class="fas fa-arrow-circle-up"></i></a>
-                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onDown()"><i class="fas fa-arrow-circle-down"></i></a>
-                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onRight()"><i class="fas fa-arrow-circle-right"></i></a>
-                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onLeft()"><i class="fas fa-arrow-circle-left"></i></a>
+                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onMoveDirections('up')"><i class="fas fa-arrow-circle-up"></i></a>
+                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onMoveDirections('down')"><i class="fas fa-arrow-circle-down"></i></a>
+                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onMoveDirections('right')"><i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onMoveDirections('left')"><i class="fas fa-arrow-circle-left"></i></a>
               </div>
               <div class="edit-buttons">
                 <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onAlignment('left')"><i class="fas fa-align-left"></i></a>
@@ -75,8 +75,8 @@
                 <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onAlignment('right')"><i class="fas fa-align-right"></i></a>
               </div>
               <div class="edit-buttons">
-                  <button class="btn red darken-3 waves-effect waves-light" onclick="onAddShadow()">Shadow</button>
-                  <button class="btn red darken-3 waves-effect waves-light" onclick="onAddStorke()">Storke</button>
+                  <button class="btn red darken-3 waves-effect waves-light" onclick="onAddStyle('shadow')">Shadow</button>
+                  <button class="btn red darken-3 waves-effect waves-light" onclick="onAddStyle('storke')">Storke</button>
                   <input type="color" class="btn red darken-3 waves-effect waves-light color-picker" onchange="onColorPicker(this.value)">
               </div>
             </div>
@@ -156,7 +156,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
-    <script src="js/main.js"></script>
+    <script src="js/util.js"></script>
     <script src="js/images-controller.js"></script>
     <script src="js/images-service.js"></script>
     <script src="js/meme-controller.js"></script>
