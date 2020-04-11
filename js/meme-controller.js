@@ -59,92 +59,60 @@ function onAddLine() {
     renderCanvas(currentMeme.selectedImgId)
 }
 
-function onAddSentence() {
-    let currentMeme = getCurrentMeme();
-    let inputTxt = $('.add-line').get(0);
-    currentMeme.textProps[currentMeme.selectedLineIdx].content = inputTxt.value;
-    renderCanvas(currentMeme.selectedImgId);
-}
-
-function onAddShadow() {
-    let currentMeme = getCurrentMeme();
-    let currentMemeShadow = currentMeme.textProps[currentMeme.selectedLineIdx].shadow
-    currentMemeShadow = (!currentMemeShadow) ? true : false
-    currentMeme.textProps[currentMeme.selectedLineIdx].shadow = currentMemeShadow
-    renderCanvas(currentMeme.selectedImgId);
-}
-
-function onAddStorke() {
-    let currentMeme = getCurrentMeme();
-    let currentMemeStorke = currentMeme.textProps[currentMeme.selectedLineIdx].stroke
-    currentMemeStorke = (!currentMemeStorke) ? true : false
-    currentMeme.textProps[currentMeme.selectedLineIdx].stroke = currentMemeStorke
-    renderCanvas(currentMeme.selectedImgId);
-}
-
 function onDeleteLine() {
-    let currentMeme = getCurrentMeme();
-    deleteLine(currentMeme)
+    let currentMeme = deleteLine()
     $('.add-line').val('')
     Materialize.toast('Delete Success', 4000, 'rounded')
     renderCanvas(currentMeme.selectedImgId);
 }
 
+function onAddSentence() {
+    let inputTxt = $('.add-line').get(0);
+    let currentMeme = addSentence(inputTxt)
+    renderCanvas(currentMeme.selectedImgId);
+}
+
+function onAddShadow() {
+    let currentMeme = addShadow()
+    renderCanvas(currentMeme.selectedImgId);
+}
+
+function onAddStorke() {
+    let currentMeme = addStorke()
+    renderCanvas(currentMeme.selectedImgId);
+}
+
+
 function onIncDec(action) {
     let currentMeme = getCurrentMeme()
-    let currentFontSize = currentMeme.textProps[currentMeme.selectedLineIdx].fontSize
-    if (currentFontSize === 16) currentFontSize = 18
-    if (currentFontSize === 60) currentFontSize = 58
-    if (currentFontSize > 16 && currentFontSize < 60) {
-        if (action === 'inc') currentFontSize += 2
-        else currentFontSize -= 2
-    }
-    currentMeme.textProps[currentMeme.selectedLineIdx].fontSize = currentFontSize
+    if (action === 'inc') currentMeme = incText(currentMeme)
+    else currentMeme = decText(currentMeme)
     renderCanvas(currentMeme.selectedImgId)
 }
 
 function onUp() {
-    let currentMeme = getCurrentMeme()
-    let currentYPos = currentMeme.textProps[currentMeme.selectedLineIdx].yPos
-    if (currentYPos === 0.95) currentYPos = 0.94
-    else if (currentYPos === 0.15) currentYPos = 0.15
-    else if (currentYPos > 0.95 || currentYPos > 0.15) currentYPos -= 0.05
-    currentMeme.textProps[currentMeme.selectedLineIdx].yPos = currentYPos
+    let currentMeme = moveTextUp()
     renderCanvas(currentMeme.selectedImgId)
 }
 
 function onDown() {
-    let currentMeme = getCurrentMeme()
-    let currentYPos = currentMeme.textProps[currentMeme.selectedLineIdx].yPos
-    currentYPos = (currentYPos < 0.05) ? 0.05 : currentYPos + 0.05
-    if (currentYPos > 0.95) currentYPos = 0.95
-    currentMeme.textProps[currentMeme.selectedLineIdx].yPos = currentYPos
+    let currentMeme = moveTextDown()
     renderCanvas(currentMeme.selectedImgId)
 }
 
 function onRight() {
-    let currentMeme = getCurrentMeme()
-    let currentXPos = currentMeme.textProps[currentMeme.selectedLineIdx].xPos
-    if (currentXPos >= 0.85) currentXPos = 0.85
-    else currentXPos += 0.05
-    currentMeme.textProps[currentMeme.selectedLineIdx].xPos = currentXPos
+    let currentMeme = moveTextRight()
     renderCanvas(currentMeme.selectedImgId)
 }
 
 function onLeft() {
-    let currentMeme = getCurrentMeme()
-    let currentXPos = currentMeme.textProps[currentMeme.selectedLineIdx].xPos
-    if (currentXPos === 0.80) currentXPos = 0.80
-    else if (currentXPos === 0.15) currentXPos = 0.15
-    else if (currentXPos > 0.80 || currentXPos > 0.20) currentXPos -= 0.05
-    currentMeme.textProps[currentMeme.selectedLineIdx].xPos = currentXPos
+    let currentMeme = moveTextLeft()
     renderCanvas(currentMeme.selectedImgId)
 }
 
 function onColorPicker(color) {
-    let currentMeme = getCurrentMeme()
+    let currentMeme = textColorPicker(color)
     $('.color-picker').val(color)
-    currentMeme.textProps[currentMeme.selectedLineIdx].color = color
     renderCanvas(currentMeme.selectedImgId)
 }
 
@@ -159,16 +127,16 @@ function onLineToggle(line) {
 }
 
 function onAlignment(align) {
-    let currentMeme = getCurrentMeme()
+    let currentMeme = {}
     switch (align) {
         case 'right':
-            currentMeme.textProps[currentMeme.selectedLineIdx].xPos = 0.85
+            currentMeme = textAlignRight()
             break
         case 'left':
-            currentMeme.textProps[currentMeme.selectedLineIdx].xPos = 0.15
+            currentMeme = textAlignLeft()
             break
         default:
-            currentMeme.textProps[currentMeme.selectedLineIdx].xPos = 0.50
+            currentMeme = textAlignCenter()
     }
     renderCanvas(currentMeme.selectedImgId)
 }
