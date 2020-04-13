@@ -76,6 +76,69 @@ a {
   font-size: 14px;
 }
 
+/********** MEDIA QUERIES **********/
+
+/* Medium Screens */
+@media screen and (max-width: 1694px) {
+  .btn-actions {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1550px) {
+  .search-bar {
+    margin-left: 30%;
+  }
+
+  .about-me {
+    margin-right: 200px;
+  }
+
+  .btn {
+    text-align: center;
+    font-size: 10px;
+    width: 60px;
+    height: 30px;
+  }
+
+  .btn-style {
+    width: 80px;
+  }
+
+  .btn-actions {
+    width: 20%;
+  }
+
+  #canvas {
+    width: 90%;
+  }
+}
+
+/* SmartPhones Screen */
+@media screen and (max-width: 769px) {
+  .search-bar {
+    margin-left: 60%;
+  }
+
+  .about-me {
+    margin-right: 400px;
+  }
+
+  .tabs {
+    font-variant: unicase;
+  }
+
+  .about-circle {
+    bottom: 40px;
+    right: 15px;
+  }
+
+  .social-btn {
+    width: 20%;
+  }
+}
+
+/********** TOAST MESSAGE **********/
 #toast-container {
   display: block;
   position: fixed;

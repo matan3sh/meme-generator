@@ -19,7 +19,7 @@
       <div class="nav-wrapper red darken-4">
         <a href="#" class="logo brand-logo left">Meme Generator</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#contact"><i class="fas fa-id-card"></i></a></li>
+          <li><a href="#contact" class="about-me"><i class="fas fa-id-card"></i></a></li>
         </ul>
         <form class="search-bar">
           <div class="input-field">
@@ -75,16 +75,16 @@
                 <a href="#" class="btn-floating red darken-3 btn-large waves-effect waves-light" onclick="onAlignment('right')"><i class="fas fa-align-right"></i></a>
               </div>
               <div class="edit-buttons">
-                  <button class="btn red darken-3 waves-effect waves-light" onclick="onAddStyle('shadow')">Shadow</button>
-                  <button class="btn red darken-3 waves-effect waves-light" onclick="onAddStyle('storke')">Storke</button>
-                  <input type="color" class="btn red darken-3 waves-effect waves-light color-picker" onchange="onColorPicker(this.value)">
+                  <button class="btn red darken-3 waves-effect waves-light btn-style" onclick="onAddStyle('shadow')">Shadow</button>
+                  <button class="btn red darken-3 waves-effect waves-light btn-style" onclick="onAddStyle('storke')">Storke</button>
+                  <input type="color" class="btn red darken-3 waves-effect waves-light color-picker btn-style" onchange="onColorPicker(this.value)">
               </div>
             </div>
             <div class="chips center-align"></div>
             <div class="card-action center-align">
-              <button class="btn btn red darken-3 white-text waves-effect waves-light"><i class="fas fa-save"></i> SAVE</button>
-              <button class="btn btn black white-text waves-effect waves-light" onclick="onDownloadMeme()"><i class="fas fa-download"></i> DOWNLOAD</button>
-              <button class="btn btn blue white-text waves-effect waves-light"><i class="fab fa-facebook"></i> SHARE</button>
+              <button class="btn btn red darken-3 white-text waves-effect waves-light btn-actions"><i class="fas fa-save"></i> SAVE</button>
+              <button class="btn btn black white-text waves-effect waves-light btn-actions" onclick="onDownloadMeme()"><i class="fas fa-download"></i> DOWNLOAD</button>
+              <button class="btn btn blue white-text waves-effect waves-light btn-actions"><i class="fab fa-facebook"></i> SHARE</button>
             </div>
           </div>
         </div>
@@ -118,8 +118,8 @@
           <div class="company-info center-align">
             <div id="map"></div>
             <ul>
-              <a href="https://github.com/matan3sh" target="_blank" class="btn brown darken-3"><i class="fab fa-github-square"></i> Github</a>
-              <a href="https://www.linkedin.com/in/matan-shaviro-990b0272/" target="_blank" class="btn blue darken-3"><i class="fab fa-linkedin"></i> Linkedin</a>
+              <a href="https://github.com/matan3sh" target="_blank" class="btn brown darken-3 social-btn"><i class="fab fa-github-square"></i> Github</a>
+              <a href="https://www.linkedin.com/in/matan-shaviro-990b0272/" target="_blank" class="btn blue darken-3 social-btn"><i class="fab fa-linkedin"></i> Linkedin</a>
             </ul>
           </div>
         </div>
