@@ -133,8 +133,31 @@ a {
     right: 15px;
   }
 
+  .btn {
+    text-align: center;
+    font-size: 10px;
+    width: 60px;
+    height: 30px;
+  }
+
+  .btn-style {
+    width: 80px;
+  }
+
+  .btn-actions {
+    width: 20%;
+  }
+
   .social-btn {
     width: 20%;
+  }
+
+  #canvas {
+    width: 100%;
+  }
+
+  .meme-wrapper {
+    display: flex;
   }
 }
 
